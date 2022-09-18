@@ -1,5 +1,5 @@
 <ion-slides mode="ios" pager="ios" [options]="slideOpts">
-  <ion-slide *ngFor="let pI of att_movies">
+  <ion-slide *ngFor="let pI of att_movies | pipe_filterImg">
     <ion-card (click)="showDetail(pI.id)">
       <img [src]="pI.backdrop_path | pipeImagen" />
     </ion-card>

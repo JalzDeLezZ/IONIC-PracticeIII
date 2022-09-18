@@ -41,12 +41,11 @@ export class Tab3Page implements OnInit {
     });
     console.log(this.aFavoritesPerGenre);
   }
-
-  async dadFun_refreshList(event) {
+}
+/* async dadFun_refreshList(event) {
     if (!event) {
       this.aMovies = await this.ionicStorage.loadOldData();
       this.genres = await this.movieService.uploadGenres();
       this.mMoviesPerGenre(this.genres, this.aMovies);
     }
-  }
-}
+  } */

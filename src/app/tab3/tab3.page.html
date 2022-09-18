@@ -16,7 +16,7 @@
       </ion-row>
       <app-slideshow-poster
         [att_movies]="pI.movies"
-        (refreshList)="dadFun_refreshList($event)"
+        (refreshList)="ionViewWillEnter()"
       >
       </app-slideshow-poster>
     </ion-grid>

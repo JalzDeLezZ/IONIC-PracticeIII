@@ -11,7 +11,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class SlideshowPosterComponent implements OnInit {
   @Input() att_movies: PeliculaDetalle[] = [];
-  @Output() refreshList = new EventEmitter<string>();
+  @Output() refreshList = new EventEmitter();
 
   slideOpts = {
     slidesPerView: 2.6,
@@ -31,7 +31,15 @@ export class SlideshowPosterComponent implements OnInit {
     });
     modal.present();
 
-    const { data } = await modal.onDidDismiss();
-    this.refreshList.emit(data.exist);
+    modal.onDidDismiss().then((data) => {
+      this.refreshList.emit();
+    });
   }
 }
+
+/* send data from child to parent component
+ await modal.present();
+      const { data } = await modal.onDidDismiss();
+      this.refrescaLista.emit(data.existe);
+    }
+*/

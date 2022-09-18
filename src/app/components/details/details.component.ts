@@ -42,9 +42,8 @@ export class DetailsComponent implements OnInit {
   }
 
   mReturn() {
-    this.modalCtrl.dismiss({
-      exist: this.myStar === 'star' ? true : false,
-    });
+    this.modalCtrl.dismiss(/* data */);
+      //data → { exist: this.myStar === 'star' ? true : false,}
   }
 
   mFavorite() {

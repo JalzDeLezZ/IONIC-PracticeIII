@@ -11,6 +11,8 @@ $ ionic g s services/dataLocal --skipTests=true
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$ ionic g pipe pipes/filterImg
+
 $ ionic g c components/details --spec=false
 
 $ ionic g pipe pipes/pares

@@ -1,6 +1,6 @@
 <ion-slides mode="ios" pager="ios" [options]="slideOpts">
   <ion-slide *ngFor="let pI of att_movies">
-    <ion-card>
+    <ion-card (click)="showDetail(pI.id)">
       <img class="poster" [src]="pI.poster_path | pipeImagen" />
     </ion-card>
   </ion-slide>

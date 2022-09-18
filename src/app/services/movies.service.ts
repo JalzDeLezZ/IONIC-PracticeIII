@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ResponseMDB } from '../interfaces';
+import { PeliculaDetalle, ResponseMDB, RespuestaCredits } from '../interfaces';
 import { environment } from '../../environments/environment';
 
 const URL = environment.url;
@@ -49,5 +49,13 @@ export class MoviesService {
     return this.ejecutarQuery<ResponseMDB>(
       `/discover/movie?primary_release_date.gte=${dateInit}&primary_release_date.lte=${lastDate}`
     );
+  }
+
+  getDetailMovie(id: string) {
+    return this.ejecutarQuery<PeliculaDetalle>(`/movie/${id}?a=1`);
+  }
+
+  getActors(id: string) {
+    return this.ejecutarQuery<RespuestaCredits>(`/movie/${id}/credits?a=1`);
   }
 }

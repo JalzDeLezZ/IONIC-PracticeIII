@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/index';
+import { DetailsComponent } from '../details/details.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-slideshow-poster',
@@ -15,7 +17,17 @@ export class SlideshowPosterComponent implements OnInit {
     freeMode: true,
   };
 
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
 
   ngOnInit() {}
+
+  async showDetail(pId: number) {
+    const modal = await this.modalCtrl.create({
+      component: DetailsComponent,
+      componentProps: {
+        identity: pId,
+      },
+    });
+    modal.present();
+  }
 }

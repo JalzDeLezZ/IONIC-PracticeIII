@@ -67,7 +67,7 @@ export class DataLocalService {
   }
 
   async loadOldData() {
-    const aOldData = await this._storage.get('movies');
+    const aOldData = await this.storage.get('movies');
     this.aPeliculas = aOldData || [];
     return this.aPeliculas;
   }

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from '../../interfaces/index';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Movie, PeliculaDetalle } from '../../interfaces/index';
 import { DetailsComponent } from '../details/details.component';
 import { ModalController } from '@ionic/angular';
 
@@ -10,7 +10,8 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./slideshow-poster.component.scss'],
 })
 export class SlideshowPosterComponent implements OnInit {
-  @Input() att_movies: Movie[] = [];
+  @Input() att_movies: PeliculaDetalle[] = [];
+  @Output() refreshList = new EventEmitter<string>();
 
   slideOpts = {
     slidesPerView: 2.6,
@@ -29,5 +30,8 @@ export class SlideshowPosterComponent implements OnInit {
       },
     });
     modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    this.refreshList.emit(data.exist);
   }
 }

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable max-len */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PeliculaDetalle, ResponseMDB, RespuestaCredits } from '../interfaces';
+import { Genre, PeliculaDetalle, ResponseMDB, RespuestaCredits } from '../interfaces';
 import { environment } from '../../environments/environment';
 
 const URL = environment.url;
@@ -12,7 +13,9 @@ const apiKey = environment.apiKey;
   providedIn: 'root',
 })
 export class MoviesService {
+  generos: Genre[] = [];
   private pagePopular = 0;
+
   constructor(private http: HttpClient) {}
 
   private ejecutarQuery<T>(query: string) {
@@ -61,5 +64,15 @@ export class MoviesService {
 
   getActors(id: string) {
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${id}/credits?a=1`);
+  }
+
+  uploadGenres(): Promise<Genre[]> {
+    return new Promise((resolve) => {
+      this.ejecutarQuery(`/genre/movie/list?a=1`).subscribe((resp) => {
+        this.generos = resp['genres'];
+        console.log(this.generos);
+        resolve(this.generos);
+      });
+    });
   }
 }

@@ -42,7 +42,9 @@ export class DetailsComponent implements OnInit {
   }
 
   mReturn() {
-    this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss({
+      exist: this.myStar === 'star' ? true : false,
+    });
   }
 
   mFavorite() {

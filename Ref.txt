@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$ ionic g c components/details --spec=false
+
+$ ionic g pipe pipes/pares
+
+$ ionic g c components/slideshowPairs --spec=false
+
+$ ionic g c components/slideshowPoster --spec=false
+ionic g c components/slidesPosters --spec=false
+
+ionic g c components/slideshow-backdrop
+$ ionic g m components
+
+ionic g pipe pipes/imagen --skipTests=false
+ionic g m pipes
+
+ionic g s services/movies --skipTest=false
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+LOGIN
+https://www.themoviedb.org/settings/api
+DOC
+https://developers.themoviedb.org/3/getting-started/introduction
+
+My Api KEY
+565abbc587f9eee9822e337179ba5ab4X
+
+EXAMPLES
+https://www.themoviedb.org/documentation/api/discover
+
